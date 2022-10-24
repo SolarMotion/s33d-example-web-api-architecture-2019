@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CommissionIncentiveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.lnkCommissionFormula' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="lnkCommissionFormula">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CommissionFormulaID" />
+            <PropertyRef Name="CommissionRateTypeID" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommissionFormulaID" Type="int" Nullable="false" />
+          <Property Name="CommissionRateTypeID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.lnkCommissionFormulaOrganization' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="lnkCommissionFormulaOrganization">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OrgID" />
+            <PropertyRef Name="CommissionFormulaID" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgID" Type="int" Nullable="false" />
+          <Property Name="CommissionFormulaID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.refCommissionFormula' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="refCommissionFormula">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="CommissionStructureID" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CommissionStructureID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.refCommissionRateType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="refCommissionRateType">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="RequiredValueFrom" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RequiredValueFrom" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="RequiredValueTo" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="PayoutAmount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="PayoutPercentage" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.refCommissionStructure' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="refCommissionStructure">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.tblAccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblAccess">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AspNetUserID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AspNetUserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.tblCommissionBalance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblCommissionBalance">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OrgID" />
+            <PropertyRef Name="Balance" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgID" Type="int" Nullable="false" />
+          <Property Name="Balance" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.tblCommissionJournal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblCommissionJournal">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CommissionBalanceID" />
+            <PropertyRef Name="Operation" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="BeforeAmount" />
+            <PropertyRef Name="AfterAmount" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommissionBalanceID" Type="int" Nullable="false" />
+          <Property Name="CommissionID" Type="int" />
+          <Property Name="PayoutID" Type="int" />
+          <Property Name="Operation" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="BeforeAmount" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="AfterAmount" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.tblOrganization' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblOrganization">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GUID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ExtRefNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.trnCommissionTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="trnCommissionTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GUID" />
+            <PropertyRef Name="OrgID" />
+            <PropertyRef Name="CommissionFormulaID" />
+            <PropertyRef Name="TransactionDT" />
+            <PropertyRef Name="TransactionFigure" />
+            <PropertyRef Name="CommissionAmount" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrgID" Type="int" Nullable="false" />
+          <Property Name="CommissionFormulaID" Type="int" Nullable="false" />
+          <Property Name="TransactionDT" Type="datetime" Nullable="false" />
+          <Property Name="TransactionFigure" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="CommissionAmount" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CommissionIncentive_Dev.dbo.trnPayoutTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="trnPayoutTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GUID" />
+            <PropertyRef Name="CommissionBalanceID" />
+            <PropertyRef Name="Payout" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommissionBalanceID" Type="int" Nullable="false" />
+          <Property Name="Payout" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDT" Type="datetime" />
+          <Property Name="LastAccessID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CommissionIncentiveModelStoreContainer">
+          <EntitySet Name="lnkCommissionFormula" EntityType="Self.lnkCommissionFormula" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [lnkCommissionFormula].[ID] AS [ID], 
+    [lnkCommissionFormula].[CommissionFormulaID] AS [CommissionFormulaID], 
+    [lnkCommissionFormula].[CommissionRateTypeID] AS [CommissionRateTypeID], 
+    [lnkCommissionFormula].[IsActive] AS [IsActive], 
+    [lnkCommissionFormula].[CreateDT] AS [CreateDT], 
+    [lnkCommissionFormula].[LastUpdateDT] AS [LastUpdateDT], 
+    [lnkCommissionFormula].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[lnkCommissionFormula] AS [lnkCommissionFormula]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="lnkCommissionFormulaOrganization" EntityType="Self.lnkCommissionFormulaOrganization" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [lnkCommissionFormulaOrganization].[ID] AS [ID], 
+    [lnkCommissionFormulaOrganization].[OrgID] AS [OrgID], 
+    [lnkCommissionFormulaOrganization].[CommissionFormulaID] AS [CommissionFormulaID], 
+    [lnkCommissionFormulaOrganization].[IsActive] AS [IsActive], 
+    [lnkCommissionFormulaOrganization].[CreateDT] AS [CreateDT], 
+    [lnkCommissionFormulaOrganization].[LastUpdateDT] AS [LastUpdateDT], 
+    [lnkCommissionFormulaOrganization].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[lnkCommissionFormulaOrganization] AS [lnkCommissionFormulaOrganization]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="refCommissionFormula" EntityType="Self.refCommissionFormula" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [refCommissionFormula].[ID] AS [ID], 
+    [refCommissionFormula].[Code] AS [Code], 
+    [refCommissionFormula].[Name] AS [Name], 
+    [refCommissionFormula].[CommissionStructureID] AS [CommissionStructureID], 
+    [refCommissionFormula].[IsActive] AS [IsActive], 
+    [refCommissionFormula].[CreateDT] AS [CreateDT], 
+    [refCommissionFormula].[LastUpdateDT] AS [LastUpdateDT], 
+    [refCommissionFormula].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[refCommissionFormula] AS [refCommissionFormula]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="refCommissionRateType" EntityType="Self.refCommissionRateType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [refCommissionRateType].[ID] AS [ID], 
+    [refCommissionRateType].[Code] AS [Code], 
+    [refCommissionRateType].[Name] AS [Name], 
+    [refCommissionRateType].[RequiredValueFrom] AS [RequiredValueFrom], 
+    [refCommissionRateType].[RequiredValueTo] AS [RequiredValueTo], 
+    [refCommissionRateType].[PayoutAmount] AS [PayoutAmount], 
+    [refCommissionRateType].[PayoutPercentage] AS [PayoutPercentage], 
+    [refCommissionRateType].[IsActive] AS [IsActive], 
+    [refCommissionRateType].[CreateDT] AS [CreateDT], 
+    [refCommissionRateType].[LastUpdateDT] AS [LastUpdateDT], 
+    [refCommissionRateType].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[refCommissionRateType] AS [refCommissionRateType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="refCommissionStructure" EntityType="Self.refCommissionStructure" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [refCommissionStructure].[ID] AS [ID], 
+    [refCommissionStructure].[Code] AS [Code], 
+    [refCommissionStructure].[Name] AS [Name], 
+    [refCommissionStructure].[IsActive] AS [IsActive], 
+    [refCommissionStructure].[CreateDT] AS [CreateDT], 
+    [refCommissionStructure].[LastUpdateDT] AS [LastUpdateDT], 
+    [refCommissionStructure].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[refCommissionStructure] AS [refCommissionStructure]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblAccess" EntityType="Self.tblAccess" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblAccess].[ID] AS [ID], 
+    [tblAccess].[AspNetUserID] AS [AspNetUserID], 
+    [tblAccess].[Name] AS [Name], 
+    [tblAccess].[IsActive] AS [IsActive], 
+    [tblAccess].[CreateDT] AS [CreateDT], 
+    [tblAccess].[LastUpdateDT] AS [LastUpdateDT], 
+    [tblAccess].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[tblAccess] AS [tblAccess]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblCommissionBalance" EntityType="Self.tblCommissionBalance" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblCommissionBalance].[ID] AS [ID], 
+    [tblCommissionBalance].[OrgID] AS [OrgID], 
+    [tblCommissionBalance].[Balance] AS [Balance], 
+    [tblCommissionBalance].[IsActive] AS [IsActive], 
+    [tblCommissionBalance].[CreateDT] AS [CreateDT], 
+    [tblCommissionBalance].[LastUpdateDT] AS [LastUpdateDT], 
+    [tblCommissionBalance].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[tblCommissionBalance] AS [tblCommissionBalance]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblCommissionJournal" EntityType="Self.tblCommissionJournal" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblCommissionJournal].[ID] AS [ID], 
+    [tblCommissionJournal].[CommissionBalanceID] AS [CommissionBalanceID], 
+    [tblCommissionJournal].[CommissionID] AS [CommissionID], 
+    [tblCommissionJournal].[PayoutID] AS [PayoutID], 
+    [tblCommissionJournal].[Operation] AS [Operation], 
+    [tblCommissionJournal].[Amount] AS [Amount], 
+    [tblCommissionJournal].[BeforeAmount] AS [BeforeAmount], 
+    [tblCommissionJournal].[AfterAmount] AS [AfterAmount], 
+    [tblCommissionJournal].[IsActive] AS [IsActive], 
+    [tblCommissionJournal].[CreateDT] AS [CreateDT], 
+    [tblCommissionJournal].[LastUpdateDT] AS [LastUpdateDT], 
+    [tblCommissionJournal].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[tblCommissionJournal] AS [tblCommissionJournal]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblOrganization" EntityType="Self.tblOrganization" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblOrganization].[ID] AS [ID], 
+    [tblOrganization].[GUID] AS [GUID], 
+    [tblOrganization].[Name] AS [Name], 
+    [tblOrganization].[ExtRefNo] AS [ExtRefNo], 
+    [tblOrganization].[IsActive] AS [IsActive], 
+    [tblOrganization].[CreateDT] AS [CreateDT], 
+    [tblOrganization].[LastUpdateDT] AS [LastUpdateDT], 
+    [tblOrganization].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[tblOrganization] AS [tblOrganization]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="trnCommissionTransaction" EntityType="Self.trnCommissionTransaction" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [trnCommissionTransaction].[ID] AS [ID], 
+    [trnCommissionTransaction].[GUID] AS [GUID], 
+    [trnCommissionTransaction].[OrgID] AS [OrgID], 
+    [trnCommissionTransaction].[CommissionFormulaID] AS [CommissionFormulaID], 
+    [trnCommissionTransaction].[TransactionDT] AS [TransactionDT], 
+    [trnCommissionTransaction].[TransactionFigure] AS [TransactionFigure], 
+    [trnCommissionTransaction].[CommissionAmount] AS [CommissionAmount], 
+    [trnCommissionTransaction].[IsActive] AS [IsActive], 
+    [trnCommissionTransaction].[CreateDT] AS [CreateDT], 
+    [trnCommissionTransaction].[LastUpdateDT] AS [LastUpdateDT], 
+    [trnCommissionTransaction].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[trnCommissionTransaction] AS [trnCommissionTransaction]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="trnPayoutTransaction" EntityType="Self.trnPayoutTransaction" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [trnPayoutTransaction].[ID] AS [ID], 
+    [trnPayoutTransaction].[GUID] AS [GUID], 
+    [trnPayoutTransaction].[CommissionBalanceID] AS [CommissionBalanceID], 
+    [trnPayoutTransaction].[Payout] AS [Payout], 
+    [trnPayoutTransaction].[IsActive] AS [IsActive], 
+    [trnPayoutTransaction].[CreateDT] AS [CreateDT], 
+    [trnPayoutTransaction].[LastUpdateDT] AS [LastUpdateDT], 
+    [trnPayoutTransaction].[LastAccessID] AS [LastAccessID]
+    FROM [dbo].[trnPayoutTransaction] AS [trnPayoutTransaction]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CommissionIncentiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="lnkCommissionFormula">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CommissionFormulaID" />
+            <PropertyRef Name="CommissionRateTypeID" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommissionFormulaID" Type="Int32" Nullable="false" />
+          <Property Name="CommissionRateTypeID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lnkCommissionFormulaOrganization">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OrgID" />
+            <PropertyRef Name="CommissionFormulaID" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgID" Type="Int32" Nullable="false" />
+          <Property Name="CommissionFormulaID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="refCommissionFormula">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="CommissionStructureID" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommissionStructureID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="refCommissionRateType">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="RequiredValueFrom" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequiredValueFrom" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="RequiredValueTo" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="PayoutAmount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="PayoutPercentage" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="refCommissionStructure">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAccess">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="AspNetUserID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AspNetUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCommissionBalance">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OrgID" />
+            <PropertyRef Name="Balance" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgID" Type="Int32" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCommissionJournal">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CommissionBalanceID" />
+            <PropertyRef Name="Operation" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="BeforeAmount" />
+            <PropertyRef Name="AfterAmount" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommissionBalanceID" Type="Int32" Nullable="false" />
+          <Property Name="CommissionID" Type="Int32" />
+          <Property Name="PayoutID" Type="Int32" />
+          <Property Name="Operation" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="BeforeAmount" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="AfterAmount" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblOrganization">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GUID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CommissionIncentiveEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="lnkCommissionFormulas" EntityType="Self.lnkCommissionFormula" />
+          <EntitySet Name="lnkCommissionFormulaOrganizations" EntityType="Self.lnkCommissionFormulaOrganization" />
+          <EntitySet Name="refCommissionFormulas" EntityType="Self.refCommissionFormula" />
+          <EntitySet Name="refCommissionRateTypes" EntityType="Self.refCommissionRateType" />
+          <EntitySet Name="refCommissionStructures" EntityType="Self.refCommissionStructure" />
+          <EntitySet Name="tblAccesses" EntityType="Self.tblAccess" />
+          <EntitySet Name="tblCommissionBalances" EntityType="Self.tblCommissionBalance" />
+          <EntitySet Name="tblCommissionJournals" EntityType="Self.tblCommissionJournal" />
+          <EntitySet Name="tblOrganizations" EntityType="Self.tblOrganization" />
+          <EntitySet Name="trnCommissionTransactions" EntityType="CommissionIncentiveModel.trnCommissionTransaction" />
+          <EntitySet Name="trnPayoutTransactions" EntityType="CommissionIncentiveModel.trnPayoutTransaction" />
+        </EntityContainer>
+        <EntityType Name="trnCommissionTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GUID" />
+            <PropertyRef Name="OrgID" />
+            <PropertyRef Name="CommissionFormulaID" />
+            <PropertyRef Name="TransactionDT" />
+            <PropertyRef Name="TransactionFigure" />
+            <PropertyRef Name="CommissionAmount" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="OrgID" Type="Int32" Nullable="false" />
+          <Property Name="CommissionFormulaID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TransactionFigure" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="CommissionAmount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="trnPayoutTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GUID" />
+            <PropertyRef Name="CommissionBalanceID" />
+            <PropertyRef Name="Payout" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateDT" />
+            <PropertyRef Name="LastAccessID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="CommissionBalanceID" Type="Int32" Nullable="false" />
+          <Property Name="Payout" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessID" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CommissionIncentiveModelStoreContainer" CdmEntityContainer="CommissionIncentiveEntities">
+          <EntitySetMapping Name="lnkCommissionFormulas">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.lnkCommissionFormula">
+              <MappingFragment StoreEntitySet="lnkCommissionFormula">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CommissionFormulaID" ColumnName="CommissionFormulaID" />
+                <ScalarProperty Name="CommissionRateTypeID" ColumnName="CommissionRateTypeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lnkCommissionFormulaOrganizations">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.lnkCommissionFormulaOrganization">
+              <MappingFragment StoreEntitySet="lnkCommissionFormulaOrganization">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="CommissionFormulaID" ColumnName="CommissionFormulaID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="refCommissionFormulas">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.refCommissionFormula">
+              <MappingFragment StoreEntitySet="refCommissionFormula">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CommissionStructureID" ColumnName="CommissionStructureID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="refCommissionRateTypes">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.refCommissionRateType">
+              <MappingFragment StoreEntitySet="refCommissionRateType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RequiredValueFrom" ColumnName="RequiredValueFrom" />
+                <ScalarProperty Name="RequiredValueTo" ColumnName="RequiredValueTo" />
+                <ScalarProperty Name="PayoutAmount" ColumnName="PayoutAmount" />
+                <ScalarProperty Name="PayoutPercentage" ColumnName="PayoutPercentage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="refCommissionStructures">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.refCommissionStructure">
+              <MappingFragment StoreEntitySet="refCommissionStructure">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAccesses">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.tblAccess">
+              <MappingFragment StoreEntitySet="tblAccess">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AspNetUserID" ColumnName="AspNetUserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCommissionBalances">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.tblCommissionBalance">
+              <MappingFragment StoreEntitySet="tblCommissionBalance">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCommissionJournals">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.tblCommissionJournal">
+              <MappingFragment StoreEntitySet="tblCommissionJournal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CommissionBalanceID" ColumnName="CommissionBalanceID" />
+                <ScalarProperty Name="CommissionID" ColumnName="CommissionID" />
+                <ScalarProperty Name="PayoutID" ColumnName="PayoutID" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="BeforeAmount" ColumnName="BeforeAmount" />
+                <ScalarProperty Name="AfterAmount" ColumnName="AfterAmount" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrganizations">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.tblOrganization">
+              <MappingFragment StoreEntitySet="tblOrganization">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ExtRefNo" ColumnName="ExtRefNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trnCommissionTransactions">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.trnCommissionTransaction">
+              <MappingFragment StoreEntitySet="trnCommissionTransaction">
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CommissionAmount" ColumnName="CommissionAmount" />
+                <ScalarProperty Name="TransactionFigure" ColumnName="TransactionFigure" />
+                <ScalarProperty Name="TransactionDT" ColumnName="TransactionDT" />
+                <ScalarProperty Name="CommissionFormulaID" ColumnName="CommissionFormulaID" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trnPayoutTransactions">
+            <EntityTypeMapping TypeName="CommissionIncentiveModel.trnPayoutTransaction">
+              <MappingFragment StoreEntitySet="trnPayoutTransaction">
+                <ScalarProperty Name="LastAccessID" ColumnName="LastAccessID" />
+                <ScalarProperty Name="LastUpdateDT" ColumnName="LastUpdateDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Payout" ColumnName="Payout" />
+                <ScalarProperty Name="CommissionBalanceID" ColumnName="CommissionBalanceID" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
